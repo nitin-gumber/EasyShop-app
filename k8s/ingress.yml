@@ -1,0 +1,19 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+
+metadata:
+  name: easyshop-ingress
+  namespace: easyshop
+
+spec:
+  rules:
+    - host: "13.203.214.28.nip.io"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: easyshop-service
+                port:
+                  number: 80
